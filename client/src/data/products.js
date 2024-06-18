@@ -10,7 +10,7 @@ export const products = [
     quantity: 5,
   },
   {
-    id: 1,
+    id: 2,
     name: 'Orange',
     price: 10,
     discount: 5,
@@ -18,7 +18,7 @@ export const products = [
     quantity: 5,
   },
   {
-    id: 1,
+    id: 3,
     name: 'Orange',
     price: 10,
     discount: 5,
@@ -26,7 +26,7 @@ export const products = [
     quantity: 5,
   },
   {
-    id: 1,
+    id: 4,
     name: 'Orange',
     price: 10,
     discount: 5,

@@ -1,9 +1,8 @@
-import { About, BestSelling, Header, Navbar, Services } from '../components';
+import { About, BestSelling, Header, Services } from '../components';
 
 const Home = () => {
   return (
     <div>
-      <Navbar />
       <Header />
       <Services />
       <About />

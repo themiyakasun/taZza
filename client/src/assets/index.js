@@ -20,6 +20,9 @@ import orange from './products/orange.jpg';
 import eye from './icons/eye.png';
 import heart from './icons/heart.png';
 
+import search from './icons/search.png';
+import arrowRight from './icons/arrow-right.png';
+
 export {
   doubleArrow,
   navLeft,
@@ -39,4 +42,6 @@ export {
   orange,
   eye,
   heart,
+  search,
+  arrowRight,
 };

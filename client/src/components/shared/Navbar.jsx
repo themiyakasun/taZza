@@ -54,7 +54,7 @@ const Navbar = () => {
                 </li>
                 <li>
                   <a
-                    href=''
+                    href='/products'
                     className={`relative flex justify-center items-center px-5 z-10 text-white font-semibold before:contents-[""] before:bg-hover before:bg-center before:bg-cover ${
                       linkHover === 'hover3'
                         ? 'before:w-20 before:h-5'
@@ -63,7 +63,7 @@ const Navbar = () => {
                     onMouseEnter={() => setLinkHover('hover3')}
                     onMouseLeave={() => setLinkHover(null)}
                   >
-                    Product
+                    Products
                   </a>
                 </li>
               </ul>
