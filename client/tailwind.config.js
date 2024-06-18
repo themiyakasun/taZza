@@ -18,7 +18,7 @@ export default {
         mainHeading: '5.8rem',
         secondaryHeading: '3.1rem',
         subHeading: '2.6rem',
-        miniHeading: '0.9rem',
+        miniHeading: '1.5rem',
       },
       colors: {
         primary: '#03262C',

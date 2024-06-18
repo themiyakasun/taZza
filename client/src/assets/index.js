@@ -13,6 +13,13 @@ import countryside from './icons/countryside.png';
 import question from './icons/question.png';
 import truck from './icons/truck.png';
 
+import food from './icons/food.png';
+import girl from './girl.png';
+
+import orange from './products/orange.jpg';
+import eye from './icons/eye.png';
+import heart from './icons/heart.png';
+
 export {
   doubleArrow,
   navLeft,
@@ -27,4 +34,9 @@ export {
   countryside,
   question,
   truck,
+  food,
+  girl,
+  orange,
+  eye,
+  heart,
 };

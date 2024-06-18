@@ -1,4 +1,4 @@
-import { Header, Navbar, Services } from '../components';
+import { About, BestSelling, Header, Navbar, Services } from '../components';
 
 const Home = () => {
   return (
@@ -6,6 +6,8 @@ const Home = () => {
       <Navbar />
       <Header />
       <Services />
+      <About />
+      <BestSelling />
     </div>
   );
 };
