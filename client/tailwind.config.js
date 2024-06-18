@@ -7,7 +7,7 @@ export default {
         center: true,
         padding: '1rem',
         screens: {
-          xl: '1205px',
+          xl: '1024px',
         },
       },
 
@@ -15,10 +15,10 @@ export default {
         barlow: '"Barlow Condensed", sans-serif',
       },
       fontSize: {
-        mainHeading: '7.8rem',
-        secondaryHeading: '4.1rem',
-        subHeading: '3.6rem',
-        miniHeading: '1.9rem',
+        mainHeading: '5.8rem',
+        secondaryHeading: '3.1rem',
+        subHeading: '2.6rem',
+        miniHeading: '0.9rem',
       },
       colors: {
         primary: '#03262C',
@@ -39,6 +39,7 @@ export default {
         primaryLinearBottom:
           'linear-gradient(205deg, #060 -38.75%, #6DC81B 138.75%), #57B416',
         hover: 'url(hover.png)',
+        serviceCard: 'url(banner_2.png)',
       },
     },
   },

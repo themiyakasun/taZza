@@ -1,4 +1,5 @@
-import React from 'react';
+import PropTypes from 'prop-types';
+
 import { doubleArrow } from '../../assets';
 
 const Button = ({ text, link, onclick }) => {
@@ -25,3 +26,9 @@ const Button = ({ text, link, onclick }) => {
 };
 
 export default Button;
+
+Button.propTypes = {
+  text: PropTypes.string.isRequired,
+  link: PropTypes.string,
+  onclick: PropTypes.func,
+};
