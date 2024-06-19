@@ -26,7 +26,7 @@ const Navbar = () => {
               <ul className='hidden md:flex items-center gap-5' role='list'>
                 <li>
                   <a
-                    href=''
+                    href='/'
                     className={`relative flex justify-center items-center px-5 z-10 text-white font-semibold before:contents-[""] before:bg-hover before:bg-center before:bg-cover ${
                       linkHover === 'hover1'
                         ? 'before:w-20 before:h-5'
@@ -106,7 +106,7 @@ const Navbar = () => {
           >
             <ul className='flex flex-col justify-center items-center gap-5 '>
               <li>
-                <a href='' className='text-white text-xl font-bold'>
+                <a href='/' className='text-white text-xl font-bold'>
                   Home
                 </a>
               </li>
@@ -116,7 +116,7 @@ const Navbar = () => {
                 </a>
               </li>
               <li>
-                <a href='' className='text-white text-xl font-bold'>
+                <a href='/products' className='text-white text-xl font-bold'>
                   Product
                 </a>
               </li>
