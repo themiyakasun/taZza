@@ -1,7 +1,21 @@
+import { useState, useEffect } from 'react';
 import { search, arrowRight } from '../../assets';
-import { categories } from '../../data/categories';
+import { useStore } from '../../stores/store';
 
 const Sidebar = () => {
+  const [categories, setCategories] = useState([]);
+
+  const setSelectedCategory = useStore((state) => state.setSelectedCategory);
+
+  useEffect(() => {
+    fetch('http://localhost:5000/category')
+      .then((response) => response.json())
+      .then((data) => {
+        setCategories(data);
+      })
+      .catch((err) => console.log(err));
+  }, []);
+
   return (
     <div className='w-[300px] flex flex-col gap-20'>
       <div className='w-full flex items-center'>
@@ -22,13 +36,14 @@ const Sidebar = () => {
 
         <div className='flex flex-col mt-5'>
           {categories.map((category) => (
-            <div
+            <button
               className='flex items-center gap-5 py-[15px] px-5 border-2 border-secondary/20 cursor-pointer hover:bg-secondary/10 transition-all duration-300 ease-in-out'
-              key={category.id}
+              key={category._id}
+              onClick={() => setSelectedCategory(category._id)}
             >
               <img src={arrowRight} alt='arrow right' />
               {category.name}
-            </div>
+            </button>
           ))}
         </div>
       </div>
