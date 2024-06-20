@@ -1,5 +1,6 @@
 import { ProductModel } from '../modules/products.model.js';
 import { CategoryModel } from '../modules/category.model.js';
+import cloudinary from '../cloudinary.js';
 
 export const getProducts = (req, res) => {
   ProductModel.find({})
@@ -26,11 +27,12 @@ export const createProduct = async (req, res) => {
     if (!category) {
       return res.status(404).json({ message: 'Category not found' });
     }
+    const result = await cloudinary.uploader.upload(req.file.path);
 
     const product = new ProductModel({
       title: req.body.title,
       description: req.body.description,
-      image: req.body.image,
+      image: result.secure_url,
       price: req.body.price,
       discount: req.body.discount,
       category_id: category._id,

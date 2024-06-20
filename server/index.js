@@ -5,7 +5,6 @@ import cors from 'cors';
 
 import productRoutes from './routers/products.router.js';
 import categoryRoutes from './routers/category.router.js';
-import testRoutes from './routers/test.router.js';
 
 dotenv.config();
 const app = express();
@@ -21,7 +20,6 @@ app.use(
 app.use(express.json());
 app.use('/products', productRoutes);
 app.use('/category', categoryRoutes);
-app.use('/test', testRoutes);
 
 app.get('/', (req, res) => {
   res.send('Hello World!');
