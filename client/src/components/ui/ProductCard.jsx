@@ -14,13 +14,9 @@ const ProductCard = ({ product }) => {
       onMouseEnter={() => setHover(`hover${_id}`)}
       onMouseLeave={() => setHover(null)}
     >
-      <img
-        src={`/assets/products/${image}`}
-        alt={name}
-        className='w-[223px] h-[167px]'
-      />
+      <img src={image} alt={name} className='w-full h-[167px]' />
 
-      <div className='mt-2 flex flex-col gap-2'>
+      <div className='w-full mt-2 flex flex-col gap-2'>
         <div
           className={`text-miniHeading ${
             hover === `hover${_id}` ? 'text-white' : 'text-primary'
@@ -28,20 +24,22 @@ const ProductCard = ({ product }) => {
         >
           {name}
         </div>
-        <div className='flex justify-between items-center z-10'>
-          <div className='flex gap-3 items-center'>
-            {discount > 0 ? (
-              <>
-                <div className='text-accent100 font-bold line-through'>
-                  ${price} KG
-                </div>
-                <div className='text-accent100 font-bold'>
-                  ${price - (price * discount) / 100} KG
-                </div>
-              </>
-            ) : (
-              <div className='text-accent100 font-bold'>${price} KG</div>
-            )}
+        <div className='w-full flex justify-between items-center z-10'>
+          <div className='w-full flex justify-between items-center'>
+            <div className='flex gap-3'>
+              {discount > 0 ? (
+                <>
+                  <div className='text-accent100 font-bold line-through'>
+                    ${price} KG
+                  </div>
+                  <div className='text-accent100 font-bold'>
+                    ${price - (price * discount) / 100} KG
+                  </div>
+                </>
+              ) : (
+                <div className='text-accent100 font-bold'>${price} KG</div>
+              )}
+            </div>
 
             <Button text='Add To Cart' />
           </div>
