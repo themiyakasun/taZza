@@ -6,20 +6,24 @@ import { eye, heart } from '../../assets';
 
 const ProductCard = ({ product }) => {
   const [hover, setHover] = useState(null);
-  const { id, name, price, discount, image, quantity } = product;
+  const { _id, name, price, discount, image, quantity } = product;
 
   return (
     <div
       className='w-full relative border-2 border-secondary/20 p-2'
-      onMouseEnter={() => setHover(`hover${id}`)}
+      onMouseEnter={() => setHover(`hover${_id}`)}
       onMouseLeave={() => setHover(null)}
     >
-      <img src={image} alt={name} className='w-[223px] h-[167px]' />
+      <img
+        src={`/assets/products/${image}`}
+        alt={name}
+        className='w-[223px] h-[167px]'
+      />
 
       <div className='mt-2 flex flex-col gap-2'>
         <div
           className={`text-miniHeading ${
-            hover === `hover${id}` ? 'text-white' : 'text-primary'
+            hover === `hover${_id}` ? 'text-white' : 'text-primary'
           } font-semibold z-10`}
         >
           {name}
@@ -50,7 +54,7 @@ const ProductCard = ({ product }) => {
         </div>
       )}
 
-      {hover === `hover${id}` && (
+      {hover === `hover${_id}` && (
         <div className='w-full h-full bg-primary/90 absolute top-0 left-0 right-0 bottom-0 flex items-center justify-center gap-5 transition-all duration-300 ease-in-out'>
           <button className='w-[51px] h-[51px] rounded-full bg-white flex items-center justify-center'>
             <img src={eye} alt='preview' />
