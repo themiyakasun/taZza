@@ -74,3 +74,34 @@ export const getProductByCatId = async (req, res) => {
       .json({ message: 'Error fetching product', error: error.message });
   }
 };
+
+export const productSearch = async (req, res) => {
+  try {
+    const searchKey = req.params.key || '';
+    const regex = new RegExp(
+      searchKey.replace(/[-\/\\^$*+?.()|[\]{}]/g, '\\$&'),
+      'i'
+    );
+    const data = await ProductModel.aggregate([
+      {
+        $lookup: {
+          from: 'categories',
+          localField: 'category_id',
+          foreignField: '_id',
+          as: 'categoryDetails',
+        },
+      },
+      {
+        $match: {
+          $or: [
+            { title: { $regex: regex } },
+            { 'categoryDetails.name': { $regex: regex } },
+          ],
+        },
+      },
+    ]);
+    res.json(data);
+  } catch (error) {
+    res.status(500).send(error);
+  }
+};
