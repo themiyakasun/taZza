@@ -1,7 +1,9 @@
 import { useState } from 'react';
 import Button from '../ui/Button';
 import Input from './Input';
-import { useHistory } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { signup, signin } from '../../actions/auth';
 
 const initialState = {
   firstName: '',
@@ -14,11 +16,16 @@ const initialState = {
 const Form = () => {
   const [isSignup, setIsSignup] = useState(true);
   const [formData, setFormData] = useState(initialState);
-  const history = useHistory();
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(formData);
+    if (isSignup) {
+      dispatch(signup(formData, navigate));
+    } else {
+      dispatch(signin(formData, navigate));
+    }
   };
 
   const handleChange = (e) => {
@@ -42,7 +49,7 @@ const Form = () => {
             type='text'
             name='lastName'
             label='Last Name'
-            handleChange={''}
+            handleChange={handleChange}
           />
         </div>
       )}
