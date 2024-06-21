@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import Button from '../ui/Button';
 import Input from './Input';
+import { useHistory } from 'react-router-dom';
 
 const initialState = {
   firstName: '',
@@ -13,6 +14,7 @@ const initialState = {
 const Form = () => {
   const [isSignup, setIsSignup] = useState(true);
   const [formData, setFormData] = useState(initialState);
+  const history = useHistory();
 
   const handleSubmit = (e) => {
     e.preventDefault();
