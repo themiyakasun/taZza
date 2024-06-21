@@ -1,13 +1,13 @@
-import bycrypt from 'bcryptjs';
+import bycrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';
 
-import userModel from '../modules/user.model';
+import { UserModel } from '../modules/user.model.js';
 
 export const signIn = async (req, res) => {
   const { email, password } = req.body;
 
   try {
-    const existingUser = await userModel.findOne({ email });
+    const existingUser = await UserModel.findOne({ email });
 
     if (!existingUser)
       return res.status(404).json({ message: "User doesn't exist" });
@@ -36,7 +36,7 @@ export const signUp = async (req, res) => {
   const { email, password, confirmPassword, firstName, lastName } = req.body;
 
   try {
-    const existingUser = await userModel.findOne({ email });
+    const existingUser = await UserModel.findOne({ email });
 
     if (existingUser)
       return res.status(400).json({ message: 'User already exists' });
@@ -46,7 +46,7 @@ export const signUp = async (req, res) => {
 
     const hashedPassword = await bycrypt.hash(password, 12);
 
-    const result = await userModel.create({
+    const result = await UserModel.create({
       email,
       password: hashedPassword,
       name: `${firstName} ${lastName}`,
