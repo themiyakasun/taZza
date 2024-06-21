@@ -7,6 +7,7 @@ import cart from './icons/cart.png';
 import menu from './icons/menu.png';
 import banner from './banner.png';
 import banner1 from './banner_1.png';
+import user from './icons/user.png';
 
 import healthyFoods from './icons/healthy-food.png';
 import countryside from './icons/countryside.png';
@@ -44,4 +45,5 @@ export {
   heart,
   search,
   arrowRight,
+  user,
 };

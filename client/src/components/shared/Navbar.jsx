@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-import { navLeft, navRight, logo, cart, menu } from '../../assets';
+import { navLeft, navRight, logo, cart, menu, user } from '../../assets';
 
 const Navbar = () => {
   const [linkHover, setLinkHover] = useState(null);
@@ -91,6 +91,12 @@ const Navbar = () => {
                 >
                   <img src={menu} alt='menu' />
                 </button>
+                <a
+                  href='/auth'
+                  className='relative bg-accent300 flex items-center justify-center rounded-full p-3'
+                >
+                  <img src={user} alt='user' className='w-8' />
+                </a>
               </div>
             </div>
           </div>
