@@ -1,6 +1,6 @@
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 
-import { Home, Products } from './pages';
+import { Home, Products, Auth } from './pages';
 import { Navbar } from './components';
 
 const App = () => {
@@ -11,6 +11,7 @@ const App = () => {
         <Routes>
           <Route path='/' element={<Home />} />
           <Route path='/products' element={<Products />} />
+          <Route path='/auth' element={<Auth />} />
         </Routes>
       </Router>
     </div>

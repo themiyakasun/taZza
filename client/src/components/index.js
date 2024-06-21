@@ -11,6 +11,8 @@ import BestSelling from './home/BestSelling';
 import ProductList from './products/ProductList';
 import Sidebar from './products/Sidebar';
 
+import Form from './auth/Form';
+
 export {
   Button,
   Navbar,
@@ -21,4 +23,5 @@ export {
   HeaderHalf,
   ProductList,
   Sidebar,
+  Form,
 };
