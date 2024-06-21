@@ -3,22 +3,25 @@ import { useStore } from '../../stores/store';
 import ProductCard from '../ui/ProductCard';
 
 const ProductList = () => {
-  const selectedCategory = useStore((state) => state.selectedCategory);
   const [products, setProducts] = useState([]);
 
+  const selectedCategory = useStore((state) => state.selectedCategory);
+  const productSearchKey = useStore((state) => state.productSearchKey);
+
   useEffect(() => {
-    if (selectedCategory === 'all') {
-      fetch('http://localhost:5000/products')
-        .then((res) => res.json())
-        .then((data) => setProducts(data))
-        .catch((err) => console.log(err));
-    } else {
-      fetch(`http://localhost:5000/products/${selectedCategory}`)
-        .then((res) => res.json())
-        .then((data) => setProducts(data))
-        .catch((err) => console.log(err));
+    let url = 'http://localhost:5000/products';
+
+    if (productSearchKey !== '') {
+      url = `http://localhost:5000/products/search/${productSearchKey}`;
+    } else if (selectedCategory !== 'all') {
+      url = `http://localhost:5000/products/${selectedCategory}`;
     }
-  }, [selectedCategory]);
+
+    fetch(url)
+      .then((res) => res.json())
+      .then((data) => setProducts(data))
+      .catch((err) => console.log(err));
+  }, [selectedCategory, productSearchKey]);
 
   return (
     <div className='flex flex-wrap px-5 w-full'>

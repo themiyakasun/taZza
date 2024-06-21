@@ -4,8 +4,14 @@ import { useStore } from '../../stores/store';
 
 const Sidebar = () => {
   const [categories, setCategories] = useState([]);
+  const [inputValue, setInputValue] = useState('');
+
+  const handleInputChange = (event) => {
+    setInputValue(event.target.value);
+  };
 
   const setSelectedCategory = useStore((state) => state.setSelectedCategory);
+  const setProductSearchKey = useStore((state) => state.setProductSearchKey);
 
   useEffect(() => {
     fetch('http://localhost:5000/category')
@@ -22,9 +28,14 @@ const Sidebar = () => {
         <input
           type='text'
           placeholder='Search products'
+          value={inputValue}
+          onChange={handleInputChange}
           className='w-full border border-gray-300 p-2 rounded-bl-md rounded-tl-md outline-none'
         />
-        <button className='w-[65px] h-full bg-primaryLinearRight rounded-tr-md rounded-br-md flex items-center justify-center'>
+        <button
+          className='w-[65px] h-full bg-primaryLinearRight rounded-tr-md rounded-br-md flex items-center justify-center'
+          onClick={() => setProductSearchKey(inputValue)}
+        >
           <img src={search} alt='search' />
         </button>
       </div>
