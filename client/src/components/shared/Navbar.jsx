@@ -1,10 +1,24 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { useDispatch } from 'react-redux';
 
-import { navLeft, navRight, logo, cart, menu, user } from '../../assets';
+import { navLeft, navRight, logo, cart, menu, userImg } from '../../assets';
 
 const Navbar = () => {
   const [linkHover, setLinkHover] = useState(null);
   const [menuOpen, setMenuOpen] = useState(false);
+  const [user, setUser] = useState(JSON.parse(localStorage.getItem('profile')));
+  const dispatch = useDispatch();
+
+  const logout = () => {
+    dispatch({ type: 'LOGOUT' });
+    window.location.href = '/';
+  };
+
+  useEffect(() => {
+    const token = user?.token;
+
+    setUser(JSON.parse(localStorage.getItem('profile')));
+  }, []);
 
   return (
     <>
@@ -91,12 +105,18 @@ const Navbar = () => {
                 >
                   <img src={menu} alt='menu' />
                 </button>
-                <a
-                  href='/auth'
-                  className='relative bg-accent300 flex items-center justify-center rounded-full p-3'
-                >
-                  <img src={user} alt='user' className='w-8' />
-                </a>
+                {user ? (
+                  <button className='text-white font-bold' onClick={logout}>
+                    Logout
+                  </button>
+                ) : (
+                  <a
+                    href='/auth'
+                    className='relative bg-accent300 flex items-center justify-center rounded-full p-3'
+                  >
+                    <img src={userImg} alt='user' className='w-8' />
+                  </a>
+                )}
               </div>
             </div>
           </div>
