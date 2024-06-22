@@ -6,7 +6,7 @@ import { eye, heart } from '../../assets';
 
 const ProductCard = ({ product }) => {
   const [hover, setHover] = useState(null);
-  const { _id, name, price, discount, image, quantity } = product;
+  const { _id, title, price, discount, image, quantity } = product;
 
   return (
     <div
@@ -14,7 +14,7 @@ const ProductCard = ({ product }) => {
       onMouseEnter={() => setHover(`hover${_id}`)}
       onMouseLeave={() => setHover(null)}
     >
-      <img src={image} alt={name} className='w-full h-[167px]' />
+      <img src={image} alt={title} className='w-full h-[167px]' />
 
       <div className='w-full mt-2 flex flex-col gap-2'>
         <div
@@ -22,7 +22,7 @@ const ProductCard = ({ product }) => {
             hover === `hover${_id}` ? 'text-white' : 'text-primary'
           } font-semibold z-10`}
         >
-          {name}
+          {title}
         </div>
         <div className='w-full flex justify-between items-center z-10'>
           <div className='w-full flex justify-between items-center'>
