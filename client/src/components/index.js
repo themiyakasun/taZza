@@ -10,6 +10,7 @@ import BestSelling from './home/BestSelling';
 
 import ProductList from './products/ProductList';
 import Sidebar from './products/Sidebar';
+import ProductDetails from './products/ProductDetails';
 
 import Form from './auth/Form';
 
@@ -24,4 +25,5 @@ export {
   ProductList,
   Sidebar,
   Form,
+  ProductDetails,
 };

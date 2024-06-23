@@ -3,7 +3,9 @@ import axios from 'axios';
 const API = axios.create({ baseURL: 'http://localhost:5000' });
 
 export const fetchProducts = () => API.get('/products');
-export const fetchProductByCat = (category) => API.get(`/products/${category}`);
+export const fetchProductById = (id) => API.get(`/products/${id}`);
+export const fetchProductByCat = (category) =>
+  API.get(`/products/category/${category}`);
 export const fetchProductBySearch = (searchQuery) =>
   API.get(`/products/search/${searchQuery}`);
 

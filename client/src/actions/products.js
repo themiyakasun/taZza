@@ -2,6 +2,7 @@ import {
   FETCH_ALL,
   FETCH_BY_CAT,
   FETCH_BY_SEARCH,
+  FETCH_BY_ID,
 } from '../constants/actionTypes';
 import * as api from '../api/index.js';
 
@@ -23,6 +24,15 @@ export const getProductsByCat = (category) => async (dispatch) => {
       const { data } = await api.fetchProductByCat(category);
       dispatch({ type: FETCH_BY_CAT, payload: data });
     }
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+export const getProductById = (id) => async (dispatch) => {
+  try {
+    const { data } = await api.fetchProductById(id);
+    dispatch({ type: FETCH_BY_ID, payload: data });
   } catch (error) {
     console.log(error);
   }

@@ -1,6 +1,7 @@
 import {
   FETCH_ALL,
   FETCH_BY_CAT,
+  FETCH_BY_ID,
   FETCH_BY_SEARCH,
 } from '../constants/actionTypes';
 
@@ -10,6 +11,9 @@ export default (products = [], action) => {
       return action.payload;
 
     case FETCH_BY_CAT:
+      return action.payload;
+
+    case FETCH_BY_ID:
       return action.payload;
 
     case FETCH_BY_SEARCH:

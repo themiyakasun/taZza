@@ -1,7 +1,7 @@
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 
 import { Home, Products, Auth } from './pages';
-import { Navbar } from './components';
+import { Navbar, ProductDetails } from './components';
 
 const App = () => {
   return (
@@ -11,6 +11,7 @@ const App = () => {
         <Routes>
           <Route path='/' element={<Home />} />
           <Route path='/products' element={<Products />} />
+          <Route path='/products/:id' element={<ProductDetails />} />
           <Route path='/auth' element={<Auth />} />
         </Routes>
       </Router>
